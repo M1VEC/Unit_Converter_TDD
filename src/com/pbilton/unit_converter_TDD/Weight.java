@@ -4,12 +4,13 @@ public class Weight implements UnitFactor{
     //Base unit of measure for Weight is Gram
 
     private double Gram = CreateInStandard(1.00);
-    private double Milligram = CreateInStandard(1000*CreateInStandard(Gram));
-    private double Kilogram = CreateInStandard(0.001*CreateInStandard(Gram));
-    private double Stone = CreateInStandard(0.157_473*CreateInStandard(Kilogram));
-    private double Ounce = CreateInStandard(35.273_962*CreateInStandard(Kilogram));
-    private double TonUK = CreateInStandard(0.00_625*CreateInStandard(Stone));
-    private double TonUS = CreateInStandard(0.007*CreateInStandard(Stone));
+    private double Milligram = CreateInStandard(0.001*CreateInStandard(Gram));
+    private double Kilogram = CreateInStandard(1000*CreateInStandard(Gram));
+    private double Ounce = CreateInStandard(28.349*CreateInStandard(Gram));
+    private double TonUK = CreateInStandard(1016.04691*CreateInStandard(Kilogram));
+    private double TonUS = CreateInStandard(907.18474*CreateInStandard(Kilogram));
+    private double Stone = CreateInStandard(6.350293*CreateInStandard(Kilogram));
+
     public String[] unitList;
 
     public Weight() {
