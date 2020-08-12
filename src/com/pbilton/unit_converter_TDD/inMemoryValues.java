@@ -2,23 +2,26 @@ package com.pbilton.unit_converter_TDD;
 
 public class inMemoryValues {
     private UnitFactor length;
+    private double baseUnit;
+    private double baseQty;
+    private double toUnit;
 
     public inMemoryValues(UnitFactor length) {
         this.length = length;
     }
 
-    public double getBaseUnitValue(String baseUnitName){
-        double baseUnit = length.getValueInStandard(baseUnitName);
+    public double setBaseUnitValue(String baseUnitName){
+        baseUnit = length.getValueInStandard(baseUnitName);
         return baseUnit;
     }
 
-    public double getToUnitValue(String toUnitName){
-        double toUnit = length.getValueInStandard(toUnitName);
+    public double setToUnitValue(String toUnitName){
+        toUnit = length.getValueInStandard(toUnitName);
         return toUnit;
     }
 
-    public double getBaseAmount(double amount){
-        double baseQty = amount;
+    public double setBaseAmount(double amount){
+        baseQty = amount;
         return baseQty;
     }
 

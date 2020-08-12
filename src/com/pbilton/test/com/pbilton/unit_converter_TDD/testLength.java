@@ -3,7 +3,7 @@ package com.pbilton.unit_converter_TDD;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class unitTest {
+public class testLength {
     Length length = new Length();
     inMemoryValues inMemoryValues = new inMemoryValues(length);
 
@@ -26,13 +26,13 @@ public class unitTest {
     }
 
     @Test
-    public void testGetValueInStandardYard(){
+    public void testGetValueInStandardYard() {
         double value = length.getValueInStandard("yard");
         Assertions.assertEquals(91.44,value);
     }
 
     @Test
-    public void testGetValueInStandardMeter(){
+    public void testGetValueInStandardMeter() {
         double value = length.getValueInStandard("meter");
         Assertions.assertEquals(100,value);
     }
@@ -51,10 +51,29 @@ public class unitTest {
 
     @Test
     public void testConvertValues_Inch_Meter_150(){
-        double base = inMemoryValues.getBaseUnitValue("inch");
-        double toUnit = inMemoryValues.getToUnitValue("meter");
-        double amount = inMemoryValues.getBaseAmount(150);
+        double base = inMemoryValues.setBaseUnitValue("inch");
+        double toUnit = inMemoryValues.setToUnitValue("meter");
+        double amount = inMemoryValues.setBaseAmount(150);
         double value = inMemoryValues.convertValues(base,toUnit,amount);
         Assertions.assertEquals(3.81,value);
+    }
+
+    @Test
+    public void testConvertValues_Mile_Yard_10(){
+        double base = inMemoryValues.setBaseUnitValue("mile");
+        double toUnit = inMemoryValues.setToUnitValue("yard");
+        double amount = inMemoryValues.setBaseAmount(10);
+        double value = inMemoryValues.convertValues(base,toUnit,amount);
+        value = Math.round(value*100)/100;
+        Assertions.assertEquals(17_599,value);
+    }
+
+    @Test
+    public void testConvertValues_Mile_KM_1_5(){
+        double base = inMemoryValues.setBaseUnitValue("mile");
+        double toUnit = inMemoryValues.setToUnitValue("kilometer");
+        double amount = inMemoryValues.setBaseAmount(1.5);
+        double value = inMemoryValues.convertValues(base,toUnit,amount);
+        Assertions.assertEquals(2.41401,value);
     }
 }
