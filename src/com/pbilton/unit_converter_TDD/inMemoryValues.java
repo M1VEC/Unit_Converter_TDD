@@ -2,12 +2,16 @@ package com.pbilton.unit_converter_TDD;
 
 public class inMemoryValues {
     private UnitFactor length;
+    private UnitFactor weight;
     private double baseUnit;
     private double baseQty;
     private double toUnit;
+    private int parentType;
 
-    public inMemoryValues(UnitFactor length) {
+    public inMemoryValues(UnitFactor length, UnitFactor weight, int parentType) {
         this.length = length;
+        this.weight = weight;
+        this.parentType = parentType;
     }
 
     public double setBaseUnitValue(String baseUnitName){

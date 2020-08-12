@@ -4,8 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class testWeight {
+    Length length = new Length();
     Weight weight = new Weight();
-    inMemoryValues inMemoryValues = new inMemoryValues(weight);
+    private int parentType;
+    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, parentType);
 
     @Test
     public void testCreateInStandardMG(){

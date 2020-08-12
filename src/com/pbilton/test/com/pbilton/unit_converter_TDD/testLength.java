@@ -5,7 +5,9 @@ import org.junit.jupiter.api.Test;
 
 public class testLength {
     Length length = new Length();
-    inMemoryValues inMemoryValues = new inMemoryValues(length);
+    Weight weight = new Weight();
+    private int parentType;
+    inMemoryValues inMemoryValues = new inMemoryValues(length,weight,parentType);
 
     @Test
     public void testCreateInStandardCM(){
