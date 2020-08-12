@@ -21,38 +21,38 @@ public class testLength {
 
     @Test
     public void testGetValueInStandardFeet(){
-        double value = length.getValueInStandard("feet");
+        double value = length.getValueInStandard("ft");
         Assertions.assertEquals(30.48,value);
     }
 
     @Test
     public void testGetValueInStandardYard() {
-        double value = length.getValueInStandard("yard");
+        double value = length.getValueInStandard("yd");
         Assertions.assertEquals(91.44,value);
     }
 
     @Test
     public void testGetValueInStandardMeter() {
-        double value = length.getValueInStandard("meter");
+        double value = length.getValueInStandard("m");
         Assertions.assertEquals(100,value);
     }
 
     @Test
     public void testGetValueInStandardKiloMeter(){
-        double value = length.getValueInStandard("kilometer");
+        double value = length.getValueInStandard("km");
         Assertions.assertEquals(100_000,value);
     }
 
     @Test
     public void testGetValueInStandardMile(){
-        double value = length.getValueInStandard("mile");
+        double value = length.getValueInStandard("mi");
         Assertions.assertEquals(160_934.0,value);
     }
 
     @Test
     public void testConvertValues_Inch_Meter_150(){
         double base = inMemoryValues.setBaseUnitValue("inch");
-        double toUnit = inMemoryValues.setToUnitValue("meter");
+        double toUnit = inMemoryValues.setToUnitValue("m");
         double amount = inMemoryValues.setBaseAmount(150);
         double value = inMemoryValues.convertValues(base,toUnit,amount);
         Assertions.assertEquals(3.81,value);
@@ -60,8 +60,8 @@ public class testLength {
 
     @Test
     public void testConvertValues_Mile_Yard_10(){
-        double base = inMemoryValues.setBaseUnitValue("mile");
-        double toUnit = inMemoryValues.setToUnitValue("yard");
+        double base = inMemoryValues.setBaseUnitValue("mi");
+        double toUnit = inMemoryValues.setToUnitValue("yd");
         double amount = inMemoryValues.setBaseAmount(10);
         double value = inMemoryValues.convertValues(base,toUnit,amount);
         value = Math.round(value*100)/100;
@@ -70,8 +70,8 @@ public class testLength {
 
     @Test
     public void testConvertValues_Mile_KM_1_5(){
-        double base = inMemoryValues.setBaseUnitValue("mile");
-        double toUnit = inMemoryValues.setToUnitValue("kilometer");
+        double base = inMemoryValues.setBaseUnitValue("mi");
+        double toUnit = inMemoryValues.setToUnitValue("km");
         double amount = inMemoryValues.setBaseAmount(1.5);
         double value = inMemoryValues.convertValues(base,toUnit,amount);
         Assertions.assertEquals(2.41401,value);

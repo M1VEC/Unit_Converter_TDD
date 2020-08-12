@@ -2,9 +2,9 @@ package com.pbilton.unit_converter_TDD;
 
 public interface UnitFactor {
 
-     double CreateInStandard(double centimeters);
+     double CreateInStandard(double standard);
 
-     double getValueInStandard(String BaseUnit) ;
+     double getValueInStandard(String unitName) ;
 
      String[] getUnitList();
 

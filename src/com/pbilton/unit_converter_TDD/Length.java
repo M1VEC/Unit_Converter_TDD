@@ -14,12 +14,12 @@ public class Length implements UnitFactor {
         public String[] unitList;
 
         public Length() {
-            this.unitList = new String[] {"Centimeter","Inch","Feet","Yard","Meter","Kilometer","Mile"};
+            this.unitList = new String[] {"cm","inch","ft","yd","m","km","mi"};
         }
 
         @Override
-        public double CreateInStandard(double centimeters){
-            double value = centimeters;
+        public double CreateInStandard(double standard){
+            double value = standard;
             return value;
         }
 
@@ -30,15 +30,15 @@ public class Length implements UnitFactor {
                     return Centimeter;
                 case "inch":
                     return Inch;
-                case "feet":
+                case "ft":
                     return Feet;
-                case "yard":
+                case "yd":
                     return Yard;
-                case "meter":
+                case "m":
                     return Meter;
-                case "kilometer":
+                case "km":
                     return KiloMeter;
-                case "mile":
+                case "mi":
                     return Mile;
                 default:
                     System.out.println("Not a valid unit!");
