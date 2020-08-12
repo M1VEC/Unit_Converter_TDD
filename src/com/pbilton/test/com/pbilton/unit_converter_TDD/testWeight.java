@@ -7,47 +7,53 @@ public class testWeight {
     Length length = new Length();
     Weight weight = new Weight();
     private int parentType;
-    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, parentType);
+    inMemoryValues inMemoryValues = new inMemoryValues(length, weight);
 
     @Test
     public void testCreateInStandardMG(){
         double value = weight.getValueInStandard("mg");
-        Assertions.assertEquals(1_000,value);
+        Assertions.assertEquals(1_000, value);
     }
 
     @Test
     public void testCreateInStandardGram(){
         double value = weight.getValueInStandard("g");
-        Assertions.assertEquals(1.00,value);
+        Assertions.assertEquals(1.00, value);
     }
 
     @Test
     public void testCreateInStandardKG(){
         double value = weight.getValueInStandard("kg");
-        Assertions.assertEquals(0.001,value);
+        Assertions.assertEquals(0.001, value);
     }
 
     @Test
     public void testCreateInStandardOZ(){
         double value = weight.getValueInStandard("oz");
-        Assertions.assertEquals(0.035_273_962,value);
+        Assertions.assertEquals(0.035_273_962, value);
     }
 
     @Test
     public void testCreateInStandardTonUK(){
         double value = weight.getValueInStandard("ton uk");
-        Assertions.assertEquals(9.8420625E-7,value);
+        Assertions.assertEquals(9.8420625E-7, value);
     }
 
     @Test
     public void testCreateInStandardTonUS(){
         double value = weight.getValueInStandard("ton us");
-        Assertions.assertEquals(1.1023110000000001E-6,value);
+        Assertions.assertEquals(1.1023110000000001E-6, value);
     }
 
     @Test
     public void testCreateInStandardTonStone(){
         double value = weight.getValueInStandard("stone");
-        Assertions.assertEquals(1.5747300000000002E-4,value);
+        Assertions.assertEquals(1.5747300000000002E-4, value);
+    }
+
+    @Test
+    public void testSetBaseUnit(){
+        double value = inMemoryValues.setBaseValue(2,"kg");
+        Assertions.assertEquals(0.001, value);
     }
 }

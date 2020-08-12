@@ -42,7 +42,7 @@ public class Weight implements UnitFactor{
             default:
                 System.out.println("Not a valid unit!");
         }
-        return 1;
+        return 0;
     }
 
     @Override

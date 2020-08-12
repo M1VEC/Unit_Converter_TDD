@@ -6,21 +6,38 @@ public class inMemoryValues {
     private double baseUnit;
     private double baseQty;
     private double toUnit;
-    private int parentType;
 
-    public inMemoryValues(UnitFactor length, UnitFactor weight, int parentType) {
+
+    public inMemoryValues(UnitFactor length, UnitFactor weight) {
         this.length = length;
         this.weight = weight;
-        this.parentType = parentType;
+
     }
 
-    public double setBaseUnitValue(String baseUnitName){
-        baseUnit = length.getValueInStandard(baseUnitName);
+    private double setUnitValue( int parentType, String unitName){    //used to get baseUnitValue and toUnitValue
+        double value = 0;
+        if (parentType == 1){
+            value = length.getValueInStandard(unitName);
+        }
+        else if (parentType == 2){
+            value = weight.getValueInStandard(unitName);
+        }
+        else if (parentType == 3) {
+            //do something
+        }
+        else if (parentType == 4){
+            //do something else
+        }
+        return value;
+    }
+
+    public double setBaseValue(int type, String baseUnitName){
+        baseUnit = setUnitValue(type, baseUnitName);
         return baseUnit;
     }
 
-    public double setToUnitValue(String toUnitName){
-        toUnit = length.getValueInStandard(toUnitName);
+    public double setToUnitValue(int type, String toUnitName){
+        toUnit = setUnitValue(type, toUnitName);
         return toUnit;
     }
 
@@ -29,8 +46,8 @@ public class inMemoryValues {
         return baseQty;
     }
 
-    public double convertValues(double baseUnit,double toUnit, double baseQty){
-        double result = (baseUnit*baseQty)/toUnit;
+    public double convertValues(double baseUnit, double toUnit, double baseQty){
+        double result = (baseUnit * baseQty) / toUnit;
         return result;
     }
 }
