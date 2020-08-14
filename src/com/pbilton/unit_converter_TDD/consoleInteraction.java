@@ -43,7 +43,7 @@ public class consoleInteraction implements Interaction{
 
     @Override
     public void setBaseUnitQty() {
-        System.out.println("Enter quantity of " + baseUnitName + ":");
+        System.out.print("Enter quantity of " + baseUnitName + ":");
         baseQty = scanner.nextDouble();
         System.out.println();
     }
@@ -87,18 +87,22 @@ public class consoleInteraction implements Interaction{
         System.out.print("Select " + unitType + ": " );
     }
 
+    @Override
     public String getBaseUnitName() {
         return baseUnitName;
     }
 
+    @Override
     public String getToUnitName() {
         return toUnitName;
     }
 
+    @Override
     public double getBaseQty() {
         return baseQty;
     }
 
+    @Override
     public int getParentType() {
         return parentType;
     }

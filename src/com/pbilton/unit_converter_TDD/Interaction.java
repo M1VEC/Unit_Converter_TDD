@@ -9,4 +9,12 @@ public interface Interaction {
     void setBaseUnitQty();
 
     void setToUnitName();
+
+    String getBaseUnitName();
+
+    String getToUnitName();
+
+    double getBaseQty();
+
+    int getParentType();
 }

@@ -14,7 +14,7 @@ public class Weight implements UnitFactor{
     public String[] unitList;
 
     public Weight() {
-        this.unitList = new String[]{"mg", "g", "kg", "onz", "ton UK", "ton US", "stone"};
+        this.unitList = new String[]{"mg", "g", "kg", "oz", "ton UK", "ton US", "stone"};
     }
 
     @Override

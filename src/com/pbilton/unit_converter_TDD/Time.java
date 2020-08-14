@@ -1,6 +1,7 @@
 package com.pbilton.unit_converter_TDD;
 
 public class Time implements UnitFactor {
+    //Base unit of measure for Time is milliSecond
 
     private double ms = CreateInStandard(1.00);
     private double sec = CreateInStandard(1_000*CreateInStandard(ms));

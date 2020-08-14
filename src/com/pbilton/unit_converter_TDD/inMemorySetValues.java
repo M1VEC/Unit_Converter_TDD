@@ -34,7 +34,7 @@ public class inMemorySetValues {
         return unitValue;
     }
 
-    public void setParentType(int setParentType){
+    public void setParentType(int setParentType){                       //sets the parent unit index
         this.parentType = setParentType;
     }
 

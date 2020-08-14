@@ -1,6 +1,7 @@
 package com.pbilton.unit_converter_TDD;
 
 public class Speed implements UnitFactor{
+    //Base unit of measure for Speed is meters per second
 
     private double m_s = CreateInStandard(1.00);
     private double ft_s = CreateInStandard(0.3048*CreateInStandard(m_s));
