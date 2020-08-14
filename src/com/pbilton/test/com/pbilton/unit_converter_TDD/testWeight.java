@@ -8,7 +8,8 @@ public class testWeight {
     Weight weight = new Weight();
     Speed speed = new Speed();
     Time time = new Time();
-    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, speed, time);
+    private int parentType = 2;
+    inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time, parentType);
 
     @Test
     public void testCreateInStandardMG(){
@@ -54,34 +55,37 @@ public class testWeight {
 
     @Test
     public void testSetBaseUnit(){
-        double value = inMemoryValues.setBaseValue(2,"kg");
+        double value = inMemorySetValues.setBaseValue("kg");
         Assertions.assertEquals(1000, value);
     }
 
     @Test
     public void testConvertValues_kg_stone_70(){
-        double base = inMemoryValues.setBaseValue(2,"kg");
-        double toUnit = inMemoryValues.setToUnitValue(2,"stone");
-        double amount = inMemoryValues.setBaseAmount(70);
-        double value = inMemoryValues.convertValues(base, toUnit, amount);
+        double baseUnit = inMemorySetValues.setBaseValue("kg");
+        double toUnit = inMemorySetValues.setToUnitValue("stone");
+        double baseQty = inMemorySetValues.setBaseAmount(70);
+        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        double value = unitConversion.convertValues();
         Assertions.assertEquals(11.02311342169566,value);
     }
 
     @Test
     public void testConvertValues_stone_ounce_12(){
-        double base = inMemoryValues.setBaseValue(2,"stone");
-        double toUnit = inMemoryValues.setToUnitValue(2,"oz");
-        double amount = inMemoryValues.setBaseAmount(12);
-        double value = inMemoryValues.convertValues(base, toUnit, amount);
+        double baseUnit = inMemorySetValues.setBaseValue("stone");
+        double toUnit = inMemorySetValues.setToUnitValue("oz");
+        double baseQty = inMemorySetValues.setBaseAmount(12);
+        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        double value = unitConversion.convertValues();
         Assertions.assertEquals(2688.049525556457,value);
     }
 
     @Test
     public void testConvertValues_kg_gram_1(){
-        double base = inMemoryValues.setBaseValue(2,"kg");
-        double toUnit = inMemoryValues.setToUnitValue(2,"g");
-        double amount = inMemoryValues.setBaseAmount(1);
-        double value = inMemoryValues.convertValues(base, toUnit, amount);
+        double baseUnit = inMemorySetValues.setBaseValue("kg");
+        double toUnit = inMemorySetValues.setToUnitValue("g");
+        double baseQty = inMemorySetValues.setBaseAmount(1);
+        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        double value = unitConversion.convertValues();
         Assertions.assertEquals(1000,value);
     }
 }
