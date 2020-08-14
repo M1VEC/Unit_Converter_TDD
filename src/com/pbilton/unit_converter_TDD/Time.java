@@ -13,6 +13,10 @@ public class Time implements UnitFactor {
 
     public String[] unitList;
 
+    public Time(){
+        this.unitList = new String[]{"ms", "sec", "min", "hr", "day", "week", "month", "year"};
+    }
+
     @Override
     public double CreateInStandard(double standard) {
         double value = standard;
