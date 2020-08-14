@@ -25,7 +25,7 @@ public class Weight implements UnitFactor{
 
     @Override
     public double getValueInStandard(String unitName) {
-        switch (unitName) {
+        switch (unitName.toLowerCase()) {
             case "mg":
                 return Milligram;
             case "g":

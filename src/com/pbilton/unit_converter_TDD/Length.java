@@ -25,7 +25,7 @@ public class Length implements UnitFactor {
 
         @Override
         public double getValueInStandard(String unitName){
-            switch (unitName) {
+            switch (unitName.toLowerCase()) {
                 case "cm":
                     return Centimeter;
                 case "inch":

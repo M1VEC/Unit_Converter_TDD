@@ -3,14 +3,16 @@ package com.pbilton.unit_converter_TDD;
 public class inMemoryValues {
     private UnitFactor length;
     private UnitFactor weight;
+    private UnitFactor speed;
     private double baseUnit;
     private double baseQty;
     private double toUnit;
 
 
-    public inMemoryValues(UnitFactor length, UnitFactor weight) {
+    public inMemoryValues(UnitFactor length, UnitFactor weight, UnitFactor speed) {
         this.length = length;
         this.weight = weight;
+        this.speed = speed;
     }
 
     private double setUnitValue( int parentType, String unitName){                      //used to get baseUnitValue and toUnitValue
@@ -22,7 +24,7 @@ public class inMemoryValues {
             value = weight.getValueInStandard(unitName);
         }
         else if (parentType == 3) {
-            //Speed
+            value = speed.getValueInStandard(unitName);
         }
         else if (parentType == 4){
             //Time
