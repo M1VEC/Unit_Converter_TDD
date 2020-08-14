@@ -8,8 +8,8 @@ public class testTime {
     Weight weight = new Weight();
     Speed speed = new Speed();
     Time time = new Time();
+    inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time);
     private int parentType = 4;
-    inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time, parentType);
 
     @Test
     public void testCreateInStandard_sec(){
@@ -55,20 +55,22 @@ public class testTime {
 
     @Test
     public void testConvertValues_day_year_365(){
-        double baseUnit = inMemorySetValues.setBaseValue("day");
-        double toUnit = inMemorySetValues.setToUnitValue("year");
-        double baseQty = inMemorySetValues.setBaseAmount(365);
-        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        inMemorySetValues.setParentType(parentType);
+        inMemorySetValues.setBaseValue("day");
+        inMemorySetValues.setToUnitValue("year");
+        inMemorySetValues.setBaseAmount(365);
+        unitConversion unitConversion = new unitConversion(inMemorySetValues);
         double value = unitConversion.convertValues();
         Assertions.assertEquals(1.0000000219178087,value);
     }
 
     @Test
     public void testConvertValues_month_min_3(){
-        double baseUnit = inMemorySetValues.setBaseValue("month");
-        double toUnit = inMemorySetValues.setToUnitValue("min");
-        double baseQty = inMemorySetValues.setBaseAmount(3);
-        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        inMemorySetValues.setParentType(parentType);
+        inMemorySetValues.setBaseValue("month");
+        inMemorySetValues.setToUnitValue("min");
+        inMemorySetValues.setBaseAmount(3);
+        unitConversion unitConversion = new unitConversion(inMemorySetValues);
         double value = unitConversion.convertValues();
         Assertions.assertEquals(131399.99712,value);
     }

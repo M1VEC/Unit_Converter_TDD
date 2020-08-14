@@ -7,10 +7,10 @@ public class unitConversion {
     private double baseQty;
     private double result;
 
-    public unitConversion(double baseUnit, double toUnit, double baseQty) {
-        this.baseUnit = baseUnit;
-        this.toUnit = toUnit;
-        this.baseQty = baseQty;
+    public unitConversion(inMemorySetValues inMemorySetValues) {
+        this.baseQty = inMemorySetValues.getBaseQty();
+        this.baseUnit = inMemorySetValues.getBaseUnit();
+        this.toUnit = inMemorySetValues.getToUnit();
     }
 
     public double convertValues(){

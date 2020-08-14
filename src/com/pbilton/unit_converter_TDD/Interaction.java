@@ -4,9 +4,9 @@ public interface Interaction {
 
     void setParentUnit();
 
-    void setBaseUnitName(String[] availableUnits);
+    void setBaseUnitName();
 
     void setBaseUnitQty();
 
-    void setToUnitName(String[] availableUnits);
+    void setToUnitName();
 }

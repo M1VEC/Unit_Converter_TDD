@@ -11,12 +11,11 @@ public class inMemorySetValues {
     private int parentType;
     private double unitValue;
 
-    public inMemorySetValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time, int parentType) {
+    public inMemorySetValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time) {
         this.length = length;
         this.weight = weight;
         this.speed = speed;
         this.time =time;
-        this.parentType = parentType;
     }
 
     private double setUnitValue(String unitName){                      //used to get baseUnitValue and toUnitValue
@@ -35,6 +34,10 @@ public class inMemorySetValues {
         return unitValue;
     }
 
+    public void setParentType(int setParentType){
+        this.parentType = setParentType;
+    }
+
     public double setBaseValue(String baseUnitName){                    //sets the base unit value
         baseUnit = setUnitValue(baseUnitName);
         return baseUnit;
@@ -48,5 +51,17 @@ public class inMemorySetValues {
     public double setBaseAmount(double amount){                         //sets the qty of base amount
         baseQty = amount;
         return baseQty;
+    }
+
+    public double getBaseUnit() {
+        return baseUnit;
+    }
+
+    public double getBaseQty() {
+        return baseQty;
+    }
+
+    public double getToUnit() {
+        return toUnit;
     }
 }

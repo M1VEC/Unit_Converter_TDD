@@ -10,14 +10,14 @@ public class consoleInteraction implements Interaction{
     private UnitFactor weight;
     private UnitFactor speed;
     private UnitFactor time;
-    private String baseUnit;
-    private String toUnit;
+    private String baseUnitName;
+    private String toUnitName;
     private double baseQty;
     private int parentType;
-
+    private String unitType;
 
     private String [] parentUnitList = new String[] {"1 - Length" , "2 - Weight", "3 - Speed", "4 - Time"};
-    private String [] availableUnits;
+    private String [] availableUnits = new String[0];
 
     public consoleInteraction(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time) {
         this.length = length;
@@ -34,25 +34,25 @@ public class consoleInteraction implements Interaction{
     }
 
     @Override
-    public void setBaseUnitName(String[] availableUnits) {
-        String unitType = "base unit name";
-        printUnits(availableUnits, unitType);
-        baseUnit = scanner.next();
+    public void setBaseUnitName() {
+        unitType = "base unit name";
+        printUnits();
+        baseUnitName = scanner.next();
         System.out.println();
     }
 
     @Override
     public void setBaseUnitQty() {
-        System.out.println("Enter quantity of " + baseUnit + ":");
+        System.out.println("Enter quantity of " + baseUnitName + ":");
         baseQty = scanner.nextDouble();
         System.out.println();
     }
 
     @Override
-    public void setToUnitName(String[] availableUnits) {
-        String unitType = "unit name to convert to: ";
-        printUnits(availableUnits, unitType);
-        toUnit = scanner.next();
+    public void setToUnitName() {
+        unitType = "unit name to convert to: ";
+        printUnits();
+        toUnitName = scanner.next();
         System.out.println();
     }
 
@@ -64,8 +64,7 @@ public class consoleInteraction implements Interaction{
         System.out.print("Select index for " + unitType + ": " );
     }
 
-    public String[] getUnitList(){
-        String [] availableUnits = new String[0] ;
+    public void getUnitList(){
         if (parentType == 1){
             availableUnits = length.getUnitList();
         }
@@ -78,10 +77,9 @@ public class consoleInteraction implements Interaction{
         else if (parentType == 4){
             availableUnits = time.getUnitList();
         }
-        return availableUnits;
     }
 
-    public void printUnits(String[] availableUnits, String unitType){
+    public void printUnits(){
         int i ;
         for (i=0; i < availableUnits.length ; i++){
             System.out.println(availableUnits[i]);
@@ -89,15 +87,23 @@ public class consoleInteraction implements Interaction{
         System.out.print("Select " + unitType + ": " );
     }
 
-    public String getBaseUnit() {
-        return baseUnit;
+    public String getBaseUnitName() {
+        return baseUnitName;
     }
 
-    public String getToUnit() {
-        return toUnit;
+    public String getToUnitName() {
+        return toUnitName;
     }
 
     public double getBaseQty() {
         return baseQty;
+    }
+
+    public int getParentType() {
+        return parentType;
+    }
+
+    public void printConversion(double result){
+        System.out.println(getBaseQty() + " " + baseUnitName + " equals " + result + " " + toUnitName);
     }
 }

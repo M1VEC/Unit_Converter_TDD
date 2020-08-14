@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 public class testLength {
     Length length = new Length();
     Weight weight = new Weight();
-    Speed speed = new Speed();Time time = new Time();
+    Speed speed = new Speed();
+    Time time = new Time();
+    inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time);
     private int parentType = 1;
-    inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time, parentType);
 
     @Test
     public void testCreateInStandardCM(){
@@ -54,20 +55,22 @@ public class testLength {
 
     @Test
     public void testConvertValues_Inch_Meter_150(){
-        double baseUnit = inMemorySetValues.setBaseValue("inch");
-        double toUnit = inMemorySetValues.setToUnitValue("m");
-        double baseQty = inMemorySetValues.setBaseAmount(150);
-        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        inMemorySetValues.setParentType(parentType);
+        inMemorySetValues.setBaseValue("inch");
+        inMemorySetValues.setToUnitValue("m");
+        inMemorySetValues.setBaseAmount(150);
+        unitConversion unitConversion = new unitConversion(inMemorySetValues);
         double value = unitConversion.convertValues();
         Assertions.assertEquals(3.81,value);
     }
 
     @Test
     public void testConvertValues_Mile_Yard_10(){
-        double baseUnit = inMemorySetValues.setBaseValue("mi");
-        double toUnit = inMemorySetValues.setToUnitValue("yd");
-        double baseQty = inMemorySetValues.setBaseAmount(10);
-        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        inMemorySetValues.setParentType(parentType);
+        inMemorySetValues.setBaseValue("mi");
+        inMemorySetValues.setToUnitValue("yd");
+        inMemorySetValues.setBaseAmount(10);
+        unitConversion unitConversion = new unitConversion(inMemorySetValues);
         double value = unitConversion.convertValues();
         value = Math.round(value*100)/100;
         Assertions.assertEquals(17_599,value);
@@ -75,10 +78,11 @@ public class testLength {
 
     @Test
     public void testConvertValues_Mile_KM_1_5(){
-        double baseUnit = inMemorySetValues.setBaseValue("mi");
-        double toUnit = inMemorySetValues.setToUnitValue("km");
-        double baseQty = inMemorySetValues.setBaseAmount(1.5);
-        unitConversion unitConversion = new unitConversion(baseUnit, toUnit, baseQty);
+        inMemorySetValues.setParentType(parentType);
+        inMemorySetValues.setBaseValue("mi");
+        inMemorySetValues.setToUnitValue("km");
+        inMemorySetValues.setBaseAmount(1.5);
+        unitConversion unitConversion = new unitConversion(inMemorySetValues);
         double value = unitConversion.convertValues();
         Assertions.assertEquals(2.41401,value);
     }
