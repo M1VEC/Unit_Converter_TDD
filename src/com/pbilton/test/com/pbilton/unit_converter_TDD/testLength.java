@@ -6,9 +6,8 @@ import org.junit.jupiter.api.Test;
 public class testLength {
     Length length = new Length();
     Weight weight = new Weight();
-    Speed speed = new Speed();
-    private int parentType;
-    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, speed);
+    Speed speed = new Speed();Time time = new Time();
+    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, speed, time);
 
     @Test
     public void testCreateInStandardCM(){

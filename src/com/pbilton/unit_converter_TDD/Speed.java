@@ -28,19 +28,19 @@ public class Speed implements UnitFactor{
     @Override
     public double getValueInStandard(String unitName) {
         switch (unitName.toLowerCase()) {
-            case "meter per sec":
+            case "m/s":
                 return m_s;
-            case "ft per sec":
+            case "ft/s":
                 return ft_s;
-            case "km per sec":
+            case "km/s":
                 return km_s;
-            case "meter per min":
+            case "m/min":
                 return m_min;
-            case "ft per min":
+            case "ft/min":
                 return ft_min;
-            case "km per min":
+            case "km/min":
                 return km_min;
-            case "km per hour":
+            case "km/h":
                 return km_h;
             case "mph":
                 return mph;

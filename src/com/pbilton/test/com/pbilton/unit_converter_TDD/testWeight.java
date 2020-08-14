@@ -7,7 +7,8 @@ public class testWeight {
     Length length = new Length();
     Weight weight = new Weight();
     Speed speed = new Speed();
-    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, speed);
+    Time time = new Time();
+    inMemoryValues inMemoryValues = new inMemoryValues(length, weight, speed, time);
 
     @Test
     public void testCreateInStandardMG(){

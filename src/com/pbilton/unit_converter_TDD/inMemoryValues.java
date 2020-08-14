@@ -4,15 +4,16 @@ public class inMemoryValues {
     private UnitFactor length;
     private UnitFactor weight;
     private UnitFactor speed;
+    private UnitFactor time;
     private double baseUnit;
     private double baseQty;
     private double toUnit;
 
-
-    public inMemoryValues(UnitFactor length, UnitFactor weight, UnitFactor speed) {
+    public inMemoryValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time) {
         this.length = length;
         this.weight = weight;
         this.speed = speed;
+        this.time =time;
     }
 
     private double setUnitValue( int parentType, String unitName){                      //used to get baseUnitValue and toUnitValue
@@ -27,7 +28,7 @@ public class inMemoryValues {
             value = speed.getValueInStandard(unitName);
         }
         else if (parentType == 4){
-            //Time
+            value = time.getValueInStandard(unitName);
         }
         return value;
     }
