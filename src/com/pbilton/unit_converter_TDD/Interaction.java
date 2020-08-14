@@ -2,11 +2,11 @@ package com.pbilton.unit_converter_TDD;
 
 public interface Interaction {
 
-    int setParentUnit();
+    void setParentUnit();
 
     void setBaseUnitName(String[] availableUnits);
 
-    String setBaseUnitQty();
+    void setBaseUnitQty();
 
-    String setToUnitName();
+    void setToUnitName(String[] availableUnits);
 }

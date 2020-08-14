@@ -10,8 +10,10 @@ public class Main {
         UnitFactor time = new Time();
 
     consoleInteraction consoleInteraction = new consoleInteraction(length, weight, speed, time);
-    int parentType = consoleInteraction.setParentUnit();
-    String[] availableUnits = consoleInteraction.getUnitList(parentType);
+    consoleInteraction.setParentUnit();
+    String[] availableUnits = consoleInteraction.getUnitList();
     consoleInteraction.setBaseUnitName(availableUnits);
+    consoleInteraction.setBaseUnitQty();
+    consoleInteraction.setToUnitName(availableUnits);
     }
 }

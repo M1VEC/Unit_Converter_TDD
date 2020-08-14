@@ -18,13 +18,12 @@ public class testConsoleInteraction {
 
     @Test
     public void testSetParentUnit(){
-        int var = consoleInteraction.setParentUnit();
-        Assertions.assertEquals(2,var);
+        consoleInteraction.setParentUnit();
     }
 
     @Test
     public void testAvailableUnits(){
-        consoleInteraction.getUnitList(2);
+        consoleInteraction.getUnitList();
 
     }
 }
