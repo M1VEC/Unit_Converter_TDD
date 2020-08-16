@@ -112,5 +112,6 @@ public class consoleInteraction implements Interaction{
     }
 
     public void printConversion(double result){
+       System.out.println(baseQty + " " + baseUnitName + " equals " + result + " " + toUnitName);
     }
 }

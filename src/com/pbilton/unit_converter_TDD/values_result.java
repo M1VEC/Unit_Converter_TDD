@@ -40,11 +40,26 @@ public class values_result {
         return parentType;
     }
 
+    private void setUnitValuesConsole() {
+        consoleInteraction.setParentUnit();
+        consoleInteraction.setUnitList();
+        consoleInteraction.setBaseUnitName();
+        consoleInteraction.setBaseUnitQty();
+        consoleInteraction.setToUnitName();
+    }
+
+    private void setUnitValuesPanel() {
+        panelInteraction.setParentUnit();
+        panelInteraction.setBaseUnitName();
+        panelInteraction.setBaseUnitQty();
+        panelInteraction.setToUnitName();
+    }
+
     public String getBaseUnitName(){
         if (inputMethod == 1)
             baseUnitName = consoleInteraction.getBaseUnitName();
         else
-        baseUnitName = panelInteraction.getBaseUnitName();
+            baseUnitName = panelInteraction.getBaseUnitName();
         return baseUnitName;
     }
 
@@ -66,24 +81,9 @@ public class values_result {
 
     public void displayResults(double result){
         if (inputMethod == 1)
-        System.out.println(baseQty + " " + baseUnitName + " equals " + result + " " + toUnitName);
+            consoleInteraction.printConversion(result);
         else
-            JOptionPane.showMessageDialog(null, baseQty + " " + baseUnitName + " equals " + result + " " + toUnitName);
-    }
-
-    private void setUnitValuesConsole() {
-        consoleInteraction.setParentUnit();
-        consoleInteraction.setUnitList();
-        consoleInteraction.setBaseUnitName();
-        consoleInteraction.setBaseUnitQty();
-        consoleInteraction.setToUnitName();
-    }
-
-    private void setUnitValuesPanel() {
-        panelInteraction.setParentUnit();
-        panelInteraction.setBaseUnitName();
-        panelInteraction.setBaseUnitQty();
-        panelInteraction.setToUnitName();
+            panelInteraction.printConversion(result);
     }
 
 }
