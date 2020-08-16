@@ -11,7 +11,7 @@ public class inMemorySetValues {
     private int parentType;
     private double unitValue;
 
-    public inMemorySetValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time) {
+    public inMemorySetValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time ) {
         this.length = length;
         this.weight = weight;
         this.speed = speed;

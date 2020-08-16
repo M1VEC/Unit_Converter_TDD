@@ -56,7 +56,11 @@ public class consoleInteraction implements Interaction{
         System.out.println();
     }
 
-    public void printParentUnitList(String unitType){
+    public void setUnitList(){
+        UnitList();
+    }
+
+    private void printParentUnitList(String unitType){
         int i ;
         for (i=0; i < parentUnitList.length ; i++){
             System.out.println(parentUnitList[i]);
@@ -64,7 +68,7 @@ public class consoleInteraction implements Interaction{
         System.out.print("Select index for " + unitType + ": " );
     }
 
-    public void getUnitList(){
+    private void UnitList(){
         if (parentType == 1){
             availableUnits = length.getUnitList();
         }
@@ -79,7 +83,7 @@ public class consoleInteraction implements Interaction{
         }
     }
 
-    public void printUnits(){
+    private void printUnits(){
         int i ;
         for (i=0; i < availableUnits.length ; i++){
             System.out.println(availableUnits[i]);
@@ -108,6 +112,5 @@ public class consoleInteraction implements Interaction{
     }
 
     public void printConversion(double result){
-        System.out.println(getBaseQty() + " " + baseUnitName + " equals " + result + " " + toUnitName);
     }
 }

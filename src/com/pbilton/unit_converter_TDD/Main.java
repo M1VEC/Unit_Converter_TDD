@@ -3,6 +3,8 @@ package com.pbilton.unit_converter_TDD;
 public class Main {
 
     public static void main(String[] args) {
+    //inputMethod 1 = console input, inputMethod 2 = JOptionPane input
+        int inputMethod = 2;
 
         UnitFactor length = new Length();
         UnitFactor weight = new Weight();
@@ -10,20 +12,22 @@ public class Main {
         UnitFactor time = new Time();
 
     //gets required values from user using the Interaction interface
-    consoleInteraction consoleInteraction = new consoleInteraction(length, weight, speed, time);
-    SetValues setValues = new SetValues(length, weight, speed, time, consoleInteraction);
-    setValues.setUnitValues();
+        consoleInteraction consoleInteraction = new consoleInteraction(length, weight, speed, time);
+        panelInteraction panelInteraction = new panelInteraction(length, weight, speed , time);
+        values_result values_result = new values_result(length, weight, speed, time, consoleInteraction, panelInteraction, inputMethod);
+        values_result.selectInputMethod();
 
     //gets the conversion factors from the inputted values
-    inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time);
-    inMemorySetValues.setParentType(consoleInteraction.getParentType());
-    inMemorySetValues.setBaseValue(consoleInteraction.getBaseUnitName());
-    inMemorySetValues.setBaseAmount(consoleInteraction.getBaseQty());
-    inMemorySetValues.setToUnitValue(consoleInteraction.getToUnitName());
+        inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time);
+        inMemorySetValues.setParentType(values_result.getParentType());
+        inMemorySetValues.setBaseValue(values_result.getBaseUnitName());
+        inMemorySetValues.setBaseAmount(values_result.getBaseUnitQty());
+        inMemorySetValues.setToUnitValue(values_result.getToUnitName());
 
     //carries out the conversion using the inMemorySetValues
-    unitConversion unitConversion = new unitConversion(inMemorySetValues);
-    double result = unitConversion.convertValues();
-    consoleInteraction.printConversion(result);
+        unitConversion unitConversion = new unitConversion(inMemorySetValues);
+        double result = unitConversion.convertValues();
+        values_result.displayResults(result);
+
     }
 }
