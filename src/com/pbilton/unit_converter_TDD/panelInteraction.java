@@ -1,7 +1,5 @@
 package com.pbilton.unit_converter_TDD;
 
-import org.w3c.dom.ls.LSOutput;
-
 import javax.swing.*;
 
 public class panelInteraction implements Interaction {
@@ -14,7 +12,6 @@ public class panelInteraction implements Interaction {
     private String toUnitName;
     private double baseQty;
     private int parentType;
-    private String unitType;
 
     private String [] parentUnitList = new String[] {"1 - Length" , "2 - Weight", "3 - Speed", "4 - Time"};
     private String [] availableUnits = new String[0];

@@ -18,11 +18,9 @@ public class Main {
         values_result.selectInputMethod();
 
     //gets the conversion factors from the inputted values
-        inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time);
-        inMemorySetValues.setParentType(values_result.getParentType());
-        inMemorySetValues.setBaseValue(values_result.getBaseUnitName());
-        inMemorySetValues.setBaseAmount(values_result.getBaseUnitQty());
-        inMemorySetValues.setToUnitValue(values_result.getToUnitName());
+        inMemorySetValues inMemorySetValues = new inMemorySetValues(length, weight, speed, time, values_result);
+        inMemorySetValues.setBaseValue();
+        inMemorySetValues.setToUnitValue();
 
     //carries out the conversion using the inMemorySetValues
         unitConversion unitConversion = new unitConversion(inMemorySetValues);

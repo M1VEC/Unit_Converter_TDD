@@ -10,12 +10,25 @@ public class inMemorySetValues {
     private double toUnit;
     private int parentType;
     private double unitValue;
+    private String baseUnitName;
+    private String toUnitName;
 
     public inMemorySetValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time ) {
         this.length = length;
         this.weight = weight;
         this.speed = speed;
         this.time =time;
+    }
+
+    public inMemorySetValues(UnitFactor length, UnitFactor weight, UnitFactor speed, UnitFactor time, values_result values_result ) {
+        this.length = length;
+        this.weight = weight;
+        this.speed = speed;
+        this.time =time;
+        this.parentType = values_result.getParentType();
+        this.baseQty = values_result.getBaseUnitQty();
+        this.baseUnitName = values_result.getBaseUnitName();
+        this.toUnitName = values_result.getToUnitName();
     }
 
     private double setUnitValue(String unitName){                      //used to get baseUnitValue and toUnitValue
@@ -38,12 +51,22 @@ public class inMemorySetValues {
         this.parentType = setParentType;
     }
 
-    public double setBaseValue(String baseUnitName){                    //sets the base unit value
+    public double setBaseValue(String baseUnitName){                    //sets the base unit value with parameter
         baseUnit = setUnitValue(baseUnitName);
         return baseUnit;
     }
 
-    public double setToUnitValue(String toUnitName){                    //sets the toUnit value
+    public double setBaseValue(){                                       //sets the base unit value
+        baseUnit = setUnitValue(baseUnitName);
+        return baseUnit;
+    }
+
+    public double setToUnitValue(String toUnitName){                    //sets the toUnit value with parameter
+        toUnit = setUnitValue(toUnitName);
+        return toUnit;
+    }
+
+    public double setToUnitValue(){                                     //sets the toUnit value
         toUnit = setUnitValue(toUnitName);
         return toUnit;
     }
